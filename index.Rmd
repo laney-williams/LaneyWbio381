@@ -1,7 +1,13 @@
 ---
-title: "My Homepage"
+title: "Bio 381 Computational Biology"
 author: "Laney Williams"
-output: html_document
+date: "Spring 2021"
+output:
+  prettydoc::html_pretty:
+  theme: cayman
+  highlight: github
 ---
+## Homework 1- none
 
-## Homework 1:Nothing due    
+## Homework 2
+
