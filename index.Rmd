@@ -11,4 +11,4 @@ output:
 
 ## Homework 2 - [Link to Homework 2](Homework_02.html)
 
-## Homework 3 - 
+## Homework 3 - [Link to Homework 3](Homework-3.html)
