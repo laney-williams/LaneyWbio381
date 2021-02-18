@@ -1,0 +1,68 @@
+---
+title: "Homework 3"
+author: "Laney Williams"
+date: "February 17, 2021"
+output: html_document
+---
+
+1. Using a single regular expression, transform these lines into what we need for a proper .csv file.
+```
+Find: \s* (\s)
+Replace: ,
+
+```
+This first highlights all of the spaces within the text, and then captures the places where there is only one space. A comma replaces the multiple spaces.
+
+2. My collaborator asked me to please provide to her the list in a specific format. Write a single regular expression that will make the change.
+```
+
+Find: (\w+),\s(\w+),\s(.*)
+Replace: \2 \1 (\3)
+```
+
+I captured and assigned numbers to the individual words and phrases in this text. Capturing words without the commas and spaces allowed me to reorder the names and add parentheses around the universities. 
+
+3. First write a regular expression to place each file name on its own line.
+```
+Find: \s\d
+Replace: \n0
+```
+
+First I had to just focus on the space before the numbers, then I made a line break and added a zero because one zero was removed with the line break.
+
+4. Now write a regular expression to grab the four digit number and put it at the end of the title.
+```
+
+Find: (\d{3})(\d)\s(\w+)\s(\w*)
+Replace: \3 \4_\1\2
+
+Find: (\d{3})(\d)\s(\w+)\s(\w*)\s(\w+)\s(\w+)
+Replace: \3 \4 \5 \6_\1\2
+```
+
+I needed to do this in two steps because there were more words in the second line than the other lines. I essentially captured each number or word except for the .mp3 at the end and reordered them, adding an underscore before the number.
+
+5. Write a single regular expression to rearrange the data set like this.
+```
+Find: (\w)\w+,(\w+),\d+\.\d,(\d+)
+Replace: \1_\2,\3
+```
+
+First, I wrote out each line and captured each element I wanted to keep. Then, using numbers of captured items I replaced with the desired format.
+
+6. Beginning with the original data set, rearrange it to abbreviate the species name like this.
+```
+Find: (\w)\w+,(\w{4})\w+,\d+\.\d,(\d+)
+Replace: \1_\2,\3
+```
+
+I wrote out the lines with every character included. I captured everything I wanted to keep and used numbering to order the letters and numbers accordingly.
+
+7. Beginning with the original data set, rearrange it so that the species and genus names are fused with the first 3 letters of each, followed by the two columns of numerical data in reversed order.
+```
+Find: (\w)(\w)(\w)\w+,(\w)(\w)(\w)\w+,(\d+)(\.)(\d),(\d+)
+Replace: \1\2\3\4\5\6, \10, \7\8\9
+```
+
+I captured the first three letters of each word and the two numbers. Then, using ordered numbers I reordered characters to fit the desired format.
+

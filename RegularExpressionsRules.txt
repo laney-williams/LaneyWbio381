@@ -1,0 +1,8 @@
+. is any character or space.
+\. is a "period" in a standard search.
+
+\w a single word character [letter, number, or _]
+\d a single number character [0-9]
+\t a single tab space
+\s a single space, tab, or line break
+\n a single line break (try \r as well)

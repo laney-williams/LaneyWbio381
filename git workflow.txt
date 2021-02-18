@@ -1,0 +1,6 @@
+git status #checks current status of repository
+git add -A #adds altered and untracked files to staging area
+git commit -am '<message>' #commit changes with message
+git push #push committed changes to GitHub
+git pull #pull any changes from GitHub down to local repo
+<img src="PhotoName.jpg" width = "200" height ="200" /> #add a photo
