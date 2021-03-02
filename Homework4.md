@@ -57,6 +57,14 @@ Block quotes with '>'
 
 ****
 
+
+
+## Highlight
+
+==I am highlighting this line.== I put two equals signs in the front and back of the ==sentence.== 
+
+
+
 ## Link
 
 [link](www.rstudio.com)
