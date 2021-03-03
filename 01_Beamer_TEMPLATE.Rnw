@@ -73,11 +73,11 @@ Burlington, VT 05401 USA \\
 % OPTIONAL SECTION HEADERS-----------------
 \section{Nutrients transported by Mycorrhizal Fungi} % Sections can be created in order to organize your presentation into discrete blocks; all sections and subsections are automatically printed in the table of contents as an overview of the talk
 
-\subsection{Nitrogen, phosphorus...} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{Nitrogen, Phosphorus...} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 % SLIDE (BULLET POINTS)--------------------
 \begin{frame}
-\frametitle{types of mycorrhizal fungi}
+\frametitle{Types of Mycorrhizal Fungi}
 \begin{itemize}
 \item arbuscular
 \item ectomycorrhizal
