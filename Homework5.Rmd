@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ## 1. Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable z and print the value stored in z.
-
+```{r}
 x <- 1.1
 a <- 2.2
 b <- 3.3
@@ -19,10 +19,91 @@ z <- (x^a)^b
 print(z)
 
 # c. 
-z <- 3x^3 + 2x^2 + 1
+z <- 3*x^3 + 2*x^2 + 1
+print(z)
+```
+
+
 
 2.
 ## concatenate two sequences together
+```{r}
+## a.
+
 c(seq(from=1,to=8,length=8),seq(from=7,to=1,length=7))
+
+## b. repeat numbers in a vector
+my_vec <- c(1,2,3,4,5)
+rep(my_vec, times = my_vec)
+
+## c. repeat numbers in backwards order
+
+my_vec <- c(5,4,3,2,1)
+
+rep(my_vec, times = rev(my_vec), decreasing=TRUE)
+```
+
+
+
+3. 
+## create vector of two random uniform numbers
+```{r}
+my_vec <- runif(2)
+print(my_vec)
+
+## convert into polar coordinates
+
+x <- my_vec[1]
+y <- my_vec[2]
+
+print(x)
+print(y)
+
+r <- sqrt(x^2 + y^2)
+theta <- atan(y/x)
+polar <- c(r, theta)
+print(polar)
+```
+
+
+4.
+```{r}
+queue <- c("sheep", "fox", "owl", "ant")
+
+## a. serpent arrives and gets in line
+queue <- c(queue, "serpent")
+print(queue)
+
+## b. the sheep enters the arc
+queue <- queue[-c(1)]
+
+## c. donkey arrives and talks his way to front of the line
+queue <- c("donkey", queue)
+
+## d. the serpent gets impatient and leaves
+queue <- queue[-c(5)]
+
+## e. the owl gets bored and leaves
+queue <- queue[-c(3)]
+
+## f. the aphid arrives and the ant invites him to cut in line
+queue <- c(queue[c(1,2)], "aphid", queue[c(3)])
+
+print(queue)
+
+## g. determine the position of the aphid in line
+
+match("aphid", queue)
+
+### the aphid is third in line.
+
+```
+
+5. 
+## Create a vector of all the integers from 1 to 100 that are not divisible by 2, 3, or 7. 
+```{r}
+Filter(function(i) { all(i %% c(2,3,7) != 0) }, seq(100))
+```
+
 
 

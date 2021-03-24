@@ -19,7 +19,7 @@ output:
 
 ## Homework 4 Slideshow - [Link to beamer](01_Beamer_TEMPLATE.pdf)
 
-## Homework 5
+## Homework 5 - [Link to Homework 5](Homework5.html)
 
 ## Homework 6 - [Link to Homework 6](Homework6.html)
 
