@@ -23,5 +23,7 @@ output:
 
 ## Homework 6 - [Link to Homework 6](Homework6.html)
 
+## Homework 7 - [Link to Homework 7](Homework7.html)
+
 
 

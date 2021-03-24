@@ -1,0 +1,28 @@
+---
+title: "Homework5"
+author: "Laney Williams"
+date: "3/24/2021"
+output: html_document
+---
+
+## 1. Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable z and print the value stored in z.
+
+x <- 1.1
+a <- 2.2
+b <- 3.3
+# a.
+z <- x^a^b
+print(z)
+
+# b.
+z <- (x^a)^b
+print(z)
+
+# c. 
+z <- 3x^3 + 2x^2 + 1
+
+2.
+## concatenate two sequences together
+c(seq(from=1,to=8,length=8),seq(from=7,to=1,length=7))
+
+
