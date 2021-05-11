@@ -1,0 +1,274 @@
+---
+title: "Homework8"
+author: "Laney Williams"
+date: "5/10/2021"
+output: html_document
+---
+
+# Create data set: I chose to simulate results of a pollinator visitation hypothesis. Means were chosen based on how many pollinators will land on flowers in these three treatments of plants over the course of an hour. 
+# Standard deviation is the same between treatments.
+# number of observations is the total amount of observations over the entire summer for each treatment.
+```{r}
+library(tidyverse)
+
+# number of treatments
+nGroup <- 3
+
+# names of treatment groups
+nName <- c("Poll_VisitsA", "Poll_VisitsB", "Poll_VisitsC")
+
+# number of observations in each group
+nSize <- c(82,76,90)
+
+# mean in each group
+nMean <- c(1, 2.5, 6)
+
+# standard dev. in each group
+nSD <- c(0.5,0.5,0.5)
+```
+
+# constructing the data frame using the variables just created.
+```{r}
+ID <- 1:(sum(nSize))
+
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+
+Poll_Group <- rep(nName,nSize)
+ANOdata <- data.frame(ID,Poll_Group,resVar)
+str(ANOdata)
+```
+
+# Run an ANOVA using R
+
+```{r}
+ANOmodel <- aov(resVar~Poll_Group,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~Poll_Group,data=ANOdata,FUN=mean)
+unlist(z)
+```
+
+# create a ggplot of the data
+```{r}
+ANOplot <- ggplot(data=ANOdata,aes(x=Poll_Group,y=resVar,fill=Poll_Group)) + geom_boxplot()
+print(ANOplot)
+```
+
+# Change means of groups to see how small the effect size can be to still see significant differences.
+
+```{r}
+# number of treatments
+nGroup <- 3
+
+# names of treatment groups
+nName <- c("Poll_VisitsA", "Poll_VisitsB", "Poll_VisitsC")
+
+# number of observations in each group
+nSize <- c(82,76,90)
+
+# mean in each group
+nMean <- c(2, 2.05, 2.1)
+
+# standard dev. in each group
+nSD <- c(0.5,0.5,0.5)
+```
+
+# constructing the data frame using the variables just created.
+```{r}
+ID <- 1:(sum(nSize))
+
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+
+Poll_Group <- rep(nName,nSize)
+ANOdata <- data.frame(ID,Poll_Group,resVar)
+str(ANOdata)
+```
+
+# Run an ANOVA using R
+
+```{r}
+ANOmodel <- aov(resVar~Poll_Group,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~Poll_Group,data=ANOdata,FUN=mean)
+unlist(z)
+```
+
+# create a ggplot of the data
+```{r}
+ANOplot <- ggplot(data=ANOdata,aes(x=Poll_Group,y=resVar,fill=Poll_Group)) + geom_boxplot()
+print(ANOplot)
+```
+
+# With means 2, 2.05, and 2.1 the p-value is still significant at P=0.0189. This means that effect sizes can be small and still have a major effect on significance. 
+# This could be due to the high number of obvervations in each treatment.
+
+# This time with even smaller differences in means
+
+```{r}
+# number of treatments
+nGroup <- 3
+
+# names of treatment groups
+nName <- c("Poll_VisitsA", "Poll_VisitsB", "Poll_VisitsC")
+
+# number of observations in each group
+nSize <- c(82,76,90)
+
+# mean in each group
+nMean <- c(1.95, 2, 2.09)
+
+# standard dev. in each group
+nSD <- c(0.5,0.5,0.5)
+```
+
+# constructing the data frame using the variables just created.
+```{r}
+ID <- 1:(sum(nSize))
+
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+
+Poll_Group <- rep(nName,nSize)
+ANOdata <- data.frame(ID,Poll_Group,resVar)
+str(ANOdata)
+```
+
+# Run an ANOVA using R
+
+```{r}
+ANOmodel <- aov(resVar~Poll_Group,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~Poll_Group,data=ANOdata,FUN=mean)
+unlist(z)
+```
+
+# create a ggplot of the data
+```{r}
+ANOplot <- ggplot(data=ANOdata,aes(x=Poll_Group,y=resVar,fill=Poll_Group)) + geom_boxplot()
+print(ANOplot)
+```
+
+# With means 1.95, 2, and 2.09 the p value is 0.05. This is the smallest difference in means that will still show signficant differences. 
+
+# Change sample sizes to see how small the sample size can be and still see significance.
+
+```{r}
+# number of treatments
+nGroup <- 3
+
+# names of treatment groups
+nName <- c("Poll_VisitsA", "Poll_VisitsB", "Poll_VisitsC")
+
+# number of observations in each group
+nSize <- c(2,2,1)
+
+# mean in each group
+nMean <- c(1, 2.5, 6)
+
+# standard dev. in each group
+nSD <- c(0.5,0.5,0.5)
+```
+
+# constructing the data frame using the variables just created.
+```{r}
+ID <- 1:(sum(nSize))
+
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+
+Poll_Group <- rep(nName,nSize)
+ANOdata <- data.frame(ID,Poll_Group,resVar)
+str(ANOdata)
+```
+
+# Run an ANOVA using R
+
+```{r}
+ANOmodel <- aov(resVar~Poll_Group,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~Poll_Group,data=ANOdata,FUN=mean)
+unlist(z)
+```
+
+# create a ggplot of the data
+```{r}
+ANOplot <- ggplot(data=ANOdata,aes(x=Poll_Group,y=resVar,fill=Poll_Group)) + geom_boxplot()
+print(ANOplot)
+```
+
+# With 2 observations in treatments A and B and 1 observation in treatment C the p-value was 0.06. 
+# This shows that with very different means, only a few observations are necessary to have significance.
+
+```{r}
+# number of treatments
+nGroup <- 3
+
+# names of treatment groups
+nName <- c("Poll_VisitsA", "Poll_VisitsB", "Poll_VisitsC")
+
+# number of observations in each group
+nSize <- c(2,1,1)
+
+# mean in each group
+nMean <- c(1, 2.5, 6)
+
+# standard dev. in each group
+nSD <- c(0.5,0.5,0.5)
+```
+
+# constructing the data frame using the variables just created.
+```{r}
+ID <- 1:(sum(nSize))
+
+resVar <- c(rnorm(n=nSize[1],mean=nMean[1],sd=nSD[1]),
+            rnorm(n=nSize[2],mean=nMean[2],sd=nSD[2]),
+            rnorm(n=nSize[3],mean=nMean[3],sd=nSD[3]))
+
+Poll_Group <- rep(nName,nSize)
+ANOdata <- data.frame(ID,Poll_Group,resVar)
+str(ANOdata)
+```
+
+# Run an ANOVA using R
+
+```{r}
+ANOmodel <- aov(resVar~Poll_Group,data=ANOdata)
+print(ANOmodel)
+print(summary(ANOmodel))
+
+z <- summary(ANOmodel)
+str(z)
+aggregate(resVar~Poll_Group,data=ANOdata,FUN=mean)
+unlist(z)
+```
+
+# create a ggplot of the data
+```{r}
+ANOplot <- ggplot(data=ANOdata,aes(x=Poll_Group,y=resVar,fill=Poll_Group)) + geom_boxplot()
+print(ANOplot)
+```
+
+# With samples sizes 2, 1, and 1, the p-value was 0.04. 
+# This shows that because the numbers are randomly generated, significance can be altered. With means the same, but more observations there was less significance than with fewer observations. However, different results can occur with replications of the analysis. 
+
