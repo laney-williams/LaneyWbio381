@@ -1,0 +1,46 @@
+---
+title: "Homework9"
+author: "Laney Williams"
+date: "5/10/2021"
+output: html_document
+---
+```{r}
+# ---------------------------------
+# Structured Programming using code from Homework 8
+# 11 May 2021
+# LW
+# -----------------------------------
+#
+```
+
+```{r}
+# load libraries -----------------------------------
+library(ggplot2)
+
+#
+```
+
+```{r}
+# ---------------------------------
+# FUNCTION make_data
+# description: create data when no data input
+# inputs: null variable 
+# outputs: data set with multiple treatments and trials
+###################################
+make_data <- function(x=NULL) {
+  
+if(is.null(x)) {
+  Poll_VisitsA <- rnorm(n=82,mean=1,sd=0.5),
+  Poll_VisitsB <- rnorm(n=76,mean=2.5,sd=0.5),
+  Poll_VisitsC <- rnorm(n=90,mean=6,sd=0.5)
+}
+  data.set <- c(Poll_VisitsA, Poll_VisitsB, Poll_VisitsC)
+  
+
+return(make_data)
+
+  
+} # end of make_data
+#---------------------------------------------
+
+

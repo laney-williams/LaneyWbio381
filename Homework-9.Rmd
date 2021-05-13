@@ -1,0 +1,99 @@
+---
+title: "Homework--9"
+author: "Laney Williams"
+date: "5/12/2021"
+output: html_document
+---
+```{r}
+library(ggplot2)
+```
+
+```{r}
+make_data <- function(x=NULL) {
+  
+  if(is.null(x)) {
+    Poll_VisitsA <- rnorm(n=82,mean=1,sd=0.5)
+    Poll_VisitsB <- rnorm(n=76,mean=2.5,sd=0.5)
+    Poll_VisitsC <- rnorm(n=90,mean=6,sd=0.5)
+  }
+  data.set <- data.frame(Treatment=c(rep('A', 82), rep('B', 76), rep('C', 90)), Rate=c(Poll_VisitsA, Poll_VisitsB, Poll_VisitsC))
+ 
+  return(data.set) 
+  
+
+  
+  
+}
+# end of make_data
+#-----------------------
+
+make_data()
+z <- make_data()
+print(z)
+```
+
+
+```{r}
+# ---------------------------------
+# FUNCTION data_analysis
+# description: receive summary stats from the data
+# inputs: data frame
+# outputs: summary statistics
+###################################
+data_analysis <- function(x=z) {
+  
+#summary_data <- summary(x)
+#print(summary_data)
+
+stats <- aov(Rate ~ Treatment, data = x)
+stats_summary <- summary(stats)
+
+return(stats_summary)
+      
+  
+} 
+data_analysis()
+
+# end of data_analysis
+#---------------------------------------------
+```
+
+```{r}
+# ---------------------------------
+# FUNCTION create_boxplot
+# description: makes a boxplot of the data analyzed
+# inputs: statistics from AOV of data
+# outputs: box plot
+###################################
+create_boxplot <- function(orged_data=z) {
+  
+ano_plot <- ggplot(orged_data, aes(x = Treatment, y = Rate)) + geom_boxplot()
+
+return(ano_plot)
+
+  
+} # end of create_boxplot
+#---------------------------------------------
+create_boxplot()
+```
+
+# Now, I will modify the code so that it outputs a different type of graph.
+
+```{r}
+# ---------------------------------
+# FUNCTION density_plot
+# description: makes a density graph of the data analyzed
+# inputs: statistics from AOV of data
+# outputs: density plot
+###################################
+density_plot <- function(orged_data=z) {
+  
+ano_plot <- ggplot(orged_data, aes(x = Rate, fill = Treatment)) + geom_density(alpha=0.8)
+
+return(ano_plot)
+
+  
+} # end of density_plot
+#---------------------------------------------
+density_plot()
+```
