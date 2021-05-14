@@ -31,13 +31,14 @@ make_data <- function(x=NULL) {
   
 if(is.null(x)) {
   Poll_VisitsA <- rnorm(n=82,mean=1,sd=0.5),
-  Poll_VisitsB <- rnorm(n=76,mean=2.5,sd=0.5),
+  Poll_VisitsB <- rnorm(n=76,mean=2.5,sd=0.5)
   Poll_VisitsC <- rnorm(n=90,mean=6,sd=0.5)
-}
+
+  }
   data.set <- c(Poll_VisitsA, Poll_VisitsB, Poll_VisitsC)
   
 
-return(make_data)
+return(data.set)
 
   
 } # end of make_data

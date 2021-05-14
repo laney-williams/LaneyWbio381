@@ -1,3 +1,15 @@
+---
+title: "Homework_10"
+author: "Laney Williams"
+date: "5/14/2021"
+output: html_document
+---
+# For loops and randomization tests
+```{r}
+library(ggplot2)
+```
+
+```{r}
 1.
 counter <- 0
 z <- rpois(10, 1)
@@ -7,10 +19,12 @@ for(i in seq_along(z)) {
     counter <- counter + 1
   }}
 print(counter)
-
+```
+```{r}
 2. ## Use the which function to figure out which numbers are zero and then how many.
 length(which(z==0))
-
+```
+```{r}
 3. ## Input two integers representing the number of rows and columns in a matrix. Output a matrix where each element is a product of the row and column number.
 
 my_matrix <- function(r=4,
@@ -27,7 +41,8 @@ my_matrix <- function(r=4,
 my_matrix()
 
 
-
+```
+```{r}
 4. ## Randomization test for my data
 
 set.seed(1210)
@@ -53,7 +68,8 @@ make_data <- function(x=NULL) {
 make_data()
 z <- make_data()
 print(z)
-
+```
+```{r}
 ## calculate metric
 data_analysis <- function(x=z) {
 stats <- aov(Rate ~ Treatment, data = x)
@@ -61,7 +77,8 @@ stats_summary <- summary(stats)[[1]][["Pr(>F)"]][[1]]
 return(stats_summary)
 } 
 data_analysis()
-
+```
+```{r}
 ##################################################
 # function: shuffleData
 # randomize data for regression analysis
@@ -75,7 +92,8 @@ shuffleData <- function(x=z) {
   return(x)
 }
 shuffleData()
-
+```
+```{r}
 ##################################################
 # function: getPVal
 # calculate p value from simulation
@@ -90,7 +108,8 @@ getPVal <- function(z=NULL) {
   return(c(pL=pLower,pU=pUpper))
 }
 getPVal()
-
+```
+```{r}
 ##################################################
 # function: plotRanTest
 # create ggplot of histogram of simulated values
@@ -120,5 +139,6 @@ for (i in seq_len(nSim)) {
 slopes <- list(Xobs,Xsim)
 getPVal(slopes)
 plotRanTest(slopes)
+```
 
 ## The p-value that I got from my randomization test was very close to the one I got from the standard test. The randomization p-value was zero, and the standard p value was very very small, it was basically zero. 
