@@ -235,7 +235,7 @@ FileBuilder &lt;- function(fileN=10,
     # set up data file and incorporate time stamp and minimal metadata
     write.table(cat(&quot;# Simulated random data file for batch processing&quot;,&quot;\n&quot;,
                     &quot;# timestamp: &quot;,as.character(Sys.time()),&quot;\n&quot;,
-                    &quot;# NJG&quot;,&quot;\n&quot;,
+                    &quot;# LW&quot;,&quot;\n&quot;,
                     &quot;# ------------------------&quot;, &quot;\n&quot;,
                     &quot;\n&quot;,
                     file=fileLabel,
@@ -593,9 +593,9 @@ dir.create(fileFolder)</code></pre>
 # Create data frame to hold file summary statistics
 ID &lt;- seq_along(fileNames)
 fileName &lt;- fileNames
-slope &lt;- rep(NA,nFiles)
-pVal &lt;- rep(NA,nFiles)
-r2 &lt;- rep(NA,nFiles)
+slope &lt;- rep(NA,length(fileNames))
+pVal &lt;- rep(NA,length(fileNames))
+r2 &lt;- rep(NA,length(fileNames))
 
 statsOut &lt;- data.frame(ID,fileName,slope,pVal,r2)
 
@@ -614,10 +614,7 @@ for (i in seq_along(fileNames)) {
 # set up output file and incorporate time stamp and minimal metadata
 write.table(cat(&quot;# Summary stats for &quot;,
                 &quot;batch processing of regression models&quot;,&quot;\n&quot;,
-                &quot;# timestamp: &quot;,as.character(Sys.time()),&quot;\n&quot;,
-                &quot;# NJG&quot;,&quot;\n&quot;,
-                &quot;# ------------------------&quot;, &quot;\n&quot;,
-                &quot;\n&quot;,
+                &quot;# timestamp: &quot;, as.character(Sys.time()),&quot;\n&quot;,
                 file=fileOut,
                 row.names=&quot;&quot;,
                 col.names=&quot;&quot;,

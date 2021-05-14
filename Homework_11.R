@@ -21,7 +21,7 @@ FileBuilder <- function(fileN=10,
   for (i in seq_len(fileN)) {
     fileLength <- sample(fileSize[1]:fileSize[2],size=1) # get number of rows
     varX <- runif(fileLength) # create random x
-    varY <- runif(fileLength) # create randon y
+    varY <- runif(fileLength) # create random y
     dF <- data.frame(varX,varY) # bind into a data frame
     badVals <- rpois(n=1,lambda=fileNA) # determine NA number
     dF[sample(nrow(dF),size=badVals),1] <- NA # random NA in varX
@@ -38,7 +38,7 @@ FileBuilder <- function(fileN=10,
     # set up data file and incorporate time stamp and minimal metadata
     write.table(cat("# Simulated random data file for batch processing","\n",
                     "# timestamp: ",as.character(Sys.time()),"\n",
-                    "# NJG","\n",
+                    "# LW","\n",
                     "# ------------------------", "\n",
                     "\n",
                     file=fileLabel,
@@ -95,9 +95,9 @@ fileNames <- list.files(path=fileFolder)
 # Create data frame to hold file summary statistics
 ID <- seq_along(fileNames)
 fileName <- fileNames
-slope <- rep(NA,nFiles)
-pVal <- rep(NA,nFiles)
-r2 <- rep(NA,nFiles)
+slope <- rep(NA,length(fileNames))
+pVal <- rep(NA,length(fileNames))
+r2 <- rep(NA,length(fileNames))
 
 statsOut <- data.frame(ID,fileName,slope,pVal,r2)
 
@@ -116,10 +116,7 @@ for (i in seq_along(fileNames)) {
 # set up output file and incorporate time stamp and minimal metadata
 write.table(cat("# Summary stats for ",
                 "batch processing of regression models","\n",
-                "# timestamp: ",as.character(Sys.time()),"\n",
-                "# NJG","\n",
-                "# ------------------------", "\n",
-                "\n",
+                "# timestamp: ", as.character(Sys.time()),"\n",
                 file=fileOut,
                 row.names="",
                 col.names="",
@@ -132,3 +129,4 @@ write.table(x=statsOut,
             col.names=TRUE,
             sep=",",
             append=TRUE)
+

@@ -1,8 +1,5 @@
 # Summary stats for batch processing of regression models
-# timestamp: 2021-05-14 15:19:41
-# NJG
-# ------------------------
-
+# timestamp: 2021-05-14 18:48:58
 "ID","fileName","slope","pVal","r2"
 1,"ranFile001.csv",-0.762349299446806,0.00916927422968633,0.474953270423558
 2,"ranFile002.csv",0.146684064302954,0.184657207471696,0.0291407462200862
